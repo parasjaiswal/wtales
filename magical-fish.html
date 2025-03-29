@@ -53,6 +53,29 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
 
+    .button-row-top {
+      display: flex;
+      justify-content: flex-start;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #3f51b5;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .btn:hover {
+      background-color: #303f9f;
+    }
+
     .container img {
       width: 100%;
       border-radius: 12px;
@@ -75,41 +98,11 @@
       font-weight: 500;
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      text-decoration: none;
-      background-color: #3f51b5;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      transition: background 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #303f9f;
-    }
-
-    .button-row {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 40px;
-    }
-
     footer {
       text-align: center;
       color: #777;
       margin: 50px 0 20px;
       font-size: 0.9em;
-    }
-
-    @media (max-width: 600px) {
-      .button-row {
-        flex-direction: column;
-        align-items: center;
-      }
     }
   </style>
 </head>
@@ -123,6 +116,11 @@
   </header>
 
   <div class="container">
+    <div class="button-row-top">
+      <a href="https://whisperingtales.in" class="btn">← Back to Home</a>
+      <a href="https://whisperingtales.in/#stories" class="btn">← Back to Stories</a>
+    </div>
+
     <img src="https://images.unsplash.com/photo-1544551763-cede7c4b5852?fit=crop&w=1000&q=80" alt="Magical fish swimming underwater" />
 
     <p>Once upon a time in a quiet fishing village by the sea, there lived a kind boy named <span class="highlight">Karan</span>. Every day, he would go to the ocean and talk to the waves, dreaming of finding something magical.</p>
@@ -141,11 +139,6 @@
 
     <div class="moral">
       🌈 <strong>Moral:</strong> Kindness brings back magical rewards.
-    </div>
-
-    <div class="button-row">
-      <a href="https://whisperingtales.in" class="btn">← Back to Home</a>
-      <a href="https://whisperingtales.in/#stories" class="btn">← Back to Stories</a>
     </div>
   </div>
 
