@@ -10,17 +10,19 @@
       margin: 0;
       padding: 0;
       scroll-behavior: smooth;
-      background-color: #f4f4f9;
+      background: linear-gradient(to bottom, #eef2f3, #ffffff);
       color: #333;
     }
     header {
-      background: #1e1e2f;
+      background: #3f51b5;
       color: white;
-      padding: 20px;
+      padding: 30px 20px;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 1000;
+      border-radius: 0 0 15px 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     nav a {
       color: white;
@@ -33,31 +35,41 @@
     }
     section {
       padding: 60px 20px;
-      border-bottom: 1px solid #ddd;
     }
     h2 {
-      color: #1e1e2f;
+      color: #1a237e;
+      text-align: center;
     }
     .subsection {
-      margin: 25px 0;
+      margin: 30px auto;
       background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      max-width: 900px;
     }
     .subsection h3 {
       margin-top: 0;
-      color: #444;
+      color: #3949ab;
+    }
+    .subsection img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
     }
     .story-link {
       display: inline-block;
-      margin-top: 10px;
+      margin-top: 15px;
       font-weight: bold;
       color: #1e88e5;
       text-decoration: none;
+      background-color: #e3f2fd;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.3s ease;
     }
     .story-link:hover {
-      text-decoration: underline;
+      background-color: #bbdefb;
     }
   </style>
 </head>
@@ -77,28 +89,28 @@
     <div class="subsection">
       <h3>Kids</h3>
       <p>Fun and imaginative tales for young minds.</p>
+      <img src="https://cdn.pixabay.com/photo/2016/06/07/10/36/fantasy-1440951_1280.jpg" alt="Kids fantasy story illustration" />
       <a href="stories/magical-fish.html" target="_blank" class="story-link">Read: Magical Fish 🐠</a>
     </div>
     <div class="subsection">
       <h3>Fantasy</h3>
       <p>Magical kingdoms, dragons, and epic quests await.</p>
+      <img src="https://cdn.pixabay.com/photo/2019/04/10/07/38/dragon-4119398_1280.jpg" alt="Fantasy world with dragons" />
     </div>
     <div class="subsection">
       <h3>Thriller</h3>
       <p>Heart-pounding suspense and mind-twisting plots.</p>
+      <img src="https://cdn.pixabay.com/photo/2021/01/30/13/54/door-5962975_1280.jpg" alt="Dark thriller mood" />
     </div>
     <div class="subsection">
       <h3>Romance</h3>
       <p>From meet-cutes to dramatic reunions, love stories that touch the soul.</p>
+      <img src="https://cdn.pixabay.com/photo/2017/03/27/13/47/love-2179178_1280.jpg" alt="Romantic scene" />
     </div>
     <div class="subsection">
       <h3>Sci-Fi</h3>
       <p>Futuristic worlds and speculative adventures beyond imagination.</p>
-    </div>
-    <div class="subsection">
-      <h3>Kids</h3>
-      <p>Fun and imaginative tales for young minds.</p>
-      <a href="stories/magical-fish.html" target="_blank" class="story-link">Read: Magical Fish 🐠</a>
+      <img src="https://cdn.pixabay.com/photo/2017/03/25/17/55/fantasy-2170547_1280.jpg" alt="Sci-fi imagination" />
     </div>
   </section>
 
