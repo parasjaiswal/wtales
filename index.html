@@ -5,237 +5,217 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Whispering Tales</title>
   <style>
-    :root {
-      --primary: #3f51b5;
-      --secondary: #6c63ff;
-      --light: #f8f9fa;
-      --dark: #2d3436;
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
-
     body {
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
       margin: 0;
       font-family: 'Segoe UI', system-ui, sans-serif;
-      background: var(--light);
-      color: var(--dark);
+      background: linear-gradient(to bottom right, #1a1a2e, #16213e);
+      color: #fff;
+      min-height: 100vh;
     }
 
-    .hero {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      color: white;
+    header {
       text-align: center;
-      padding: 3rem 1rem 2rem;
+      padding: 4rem 1rem 2rem;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .hero h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(45deg, #6c63ff, #3f51b5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .hero p {
-      margin: 0.5rem 0;
-      font-size: 1rem;
-    }
-
-    .sections-nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+    .grid {
+      display: grid;
       gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .nav-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: white;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: transform 0.2s;
-    }
-
-    .nav-item:hover {
-      transform: scale(1.05);
-    }
-
-    .nav-item img {
-      width: 32px;
-      height: 32px;
-      margin-bottom: 0.5rem;
-    }
-
-    .fantasy-section {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      color: white;
-      padding: 2rem 1rem 3rem;
-    }
-
-    .fantasy-section h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-size: 1.8rem;
-    }
-
-    .fantasy-stories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-      max-width: 900px;
+      padding: 2rem;
+      max-width: 1300px;
       margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
-    .story {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 1rem;
-      border-radius: 1rem;
-      text-align: center;
-    }
-
-    .story img {
-      width: 100%;
-      border-radius: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .story h4 {
-      margin: 0.5rem 0 0.3rem;
-      font-size: 1rem;
-      color: #ffffff;
-    }
-
-    .story p {
-      font-size: 0.85rem;
-      opacity: 0.9;
-    }
-
-    .more-link {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .more-link a {
-      color: white;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 0.6rem 1.4rem;
-      border-radius: 2rem;
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
     }
 
-    .more-link a:hover {
-      background: rgba(255, 255, 255, 0.35);
+    .card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
     }
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      max-width: 900px;
-      margin: 3rem auto 0;
+    .card .icon {
+      font-size: 2.8rem;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(45deg, #6c63ff, #3f51b5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .feature-card {
-      background: rgba(255, 255, 255, 0.08);
-      color: white;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .feature-card .icon {
-      font-size: 2rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .feature-card h3 {
+    .card h2 {
       margin: 0.5rem 0;
-      font-size: 1.1rem;
+      font-size: 1.5rem;
+      color: #fff;
     }
 
-    .feature-card p {
+    .card p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .featured-stories {
+      max-width: 1300px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    .stories-scroll {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      scrollbar-width: thin;
+      scrollbar-color: #6c63ff transparent;
+    }
+
+    .story-card {
+      min-width: 250px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .story-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .story-card img {
+      width: 100%;
+      height: 180px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 2rem 2rem;
       font-size: 0.9rem;
-      opacity: 0.9;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.4rem;
+      }
+      
+      .card {
+        padding: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
+  <header>
+    <script>
+      const quotes = [
+        "Stories create community, enable us to see through the eyes of others, and open us to the claims of others. — Peter Forbes",
+        "The art of storytelling is reaching its golden age through the web.",
+        "Every great design begins with an even better story.",
+        "Your story could be the key that unlocks someone else's prison.",
+        "Imagination is the only weapon in the war against reality."
+      ];
+      window.addEventListener('DOMContentLoaded', () => {
+        const quote = quotes[Math.floor(Math.random() * quotes.length)];
+        document.getElementById('quote').textContent = quote;
+      });
+    </script>
 
-  <section class="hero">
     <h1>Whispering Tales</h1>
     <p>Explore a world of ideas, stories, and insights</p>
-    <p><em>Imagination is the only weapon in the war against reality.</em></p>
+    <p id="quote" style="margin-top: 1.5rem; font-style: italic; color: rgba(255, 255, 255, 0.7); font-size: 1rem;"></p>
+  </header>
 
-    <div class="sections-nav">
-      <a href="#" class="nav-item">
-        <img src="https://img.icons8.com/ios-filled/50/book.png" alt="Stories" />
-        <span>Stories</span>
-      </a>
-      <a href="#" class="nav-item">
-        <img src="https://img.icons8.com/ios-filled/50/laptop.png" alt="Technical" />
-        <span>Technical</span>
-      </a>
-      <a href="#" class="nav-item">
-        <img src="https://img.icons8.com/ios-filled/50/combo-chart.png" alt="Stocks" />
-        <span>Stocks</span>
-      </a>
-      <a href="#" class="nav-item">
-        <img src="https://img.icons8.com/ios-filled/50/earth-planet.png" alt="General" />
-        <span>General</span>
-      </a>
+  <div class="featured-stories">
+    <h2 style="padding-left: 1rem; color: #fff; font-size: 1.8rem;">Featured Stories</h2>
+    <div class="stories-scroll">
+      <div class="story-card">
+        <img src="https://source.unsplash.com/random/800x600?fantasy" alt="Fantasy Story">
+        <h3>The Lost Kingdom</h3>
+        <p>Journey through magical realms and ancient secrets</p>
+      </div>
+      <div class="story-card">
+        <img src="https://source.unsplash.com/random/800x600?adventure" alt="Adventure Story">
+        <h3>Ocean Explorers</h3>
+        <p>Discover hidden treasures beneath the waves</p>
+      </div>
+      <div class="story-card">
+        <img src="https://source.unsplash.com/random/800x600?space" alt="Space Story">
+        <h3>Galactic Odyssey</h3>
+        <p>Embark on an interstellar adventure</p>
+      </div>
+      <div class="story-card">
+        <img src="https://source.unsplash.com/random/800x600?mystery" alt="Mystery Story">
+        <h3>Shadow Puzzles</h3>
+        <p>Solve ancient mysteries in a haunted mansion</p>
+      </div>
+      <div class="story-card">
+        <img src="https://source.unsplash.com/random/800x600?robot" alt="Sci-fi Story">
+        <h3>Android Dreams</h3>
+        <p>Explore the future of artificial intelligence</p>
+      </div>
     </div>
+  </div>
+
+  <section class="grid">
+    <a href="stories.html" class="card" target="_blank">
+      <div class="icon">📖</div>
+      <h2>Story Library</h2>
+      <p>Explore our growing collection of captivating tales</p>
+    </a>
+    <a href="technical.html" class="card" target="_blank">
+      <div class="icon">💻</div>
+      <h2>Tech Insights</h2>
+      <p>Cutting-edge technology analysis and tutorials</p>
+    </a>
+    <a href="stocks.html" class="card" target="_blank">
+      <div class="icon">📈</div>
+      <h2>Market Watch</h2>
+      <p>Financial insights and investment strategies</p>
+    </a>
+    <a href="general.html" class="card" target="_blank">
+      <div class="icon">🌍</div>
+      <h2>Global Perspectives</h2>
+      <p>Cultural insights and worldly wisdom</p>
+    </a>
   </section>
 
-  <section class="fantasy-section">
-    <h2>Enchanting Fantasy</h2>
-    <div class="fantasy-stories">
-      <div class="story">
-        <img src="https://placekitten.com/250/150" alt="Story 1" />
-        <h4>The Whispering Forest</h4>
-        <p>Secrets of the woods and talking trees await.</p>
-      </div>
-      <div class="story">
-        <img src="https://placekitten.com/251/150" alt="Story 2" />
-        <h4>Moonlight Quest</h4>
-        <p>Bravery and magic under the moon’s glow.</p>
-      </div>
-      <div class="story">
-        <img src="https://placekitten.com/252/150" alt="Story 3" />
-        <h4>The Time Bubble</h4>
-        <p>Time freezes. A chance to rewrite fate begins.</p>
-      </div>
-      <div class="story">
-        <img src="https://placekitten.com/253/150" alt="Story 4" />
-        <h4>Realm of Dreams</h4>
-        <p>When dreams are more than they seem.</p>
-      </div>
-    </div>
-
-    <div class="more-link">
-      <a href="#">More Stories →</a>
-    </div>
-
-    <div class="card-grid">
-      <div class="feature-card">
-        <div class="icon">🕵️‍♂️</div>
-        <h3>Mystery & Thriller</h3>
-        <p>Unravel puzzles that keep you guessing until dawn</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon">💞</div>
-        <h3>Romance</h3>
-        <p>Heartwarming tales of love and connection</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="icon">🚀</div>
-        <h3>Sci-Fi</h3>
-        <p>Journey through futuristic dimensions</p>
-      </div>
-    </div>
-  </section>
-
+  <footer>
+    © 2025 Whispering Tales · Crafted with passion ✨<br>
+    <small>Exploring the intersection of stories and technology</small>
+  </footer>
 </body>
 </html>
