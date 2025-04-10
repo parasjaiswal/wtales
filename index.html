@@ -5,14 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Whispering Tales - Enlightening Content Hub</title>
   <style>
-    :root {
-      --primary: #3f51b5;
-      --secondary: #6c63ff;
-      --accent: #ff6b6b;
-      --light: #f8f9fa;
-      --dark: #2d3436;
-      --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    }
+:root {
+  --primary: #b2fefa;
+  --secondary: #0ed2f7;
+  --accent: #ff9a9e;
+  --light: #fdfdfd;
+  --dark: #2d3436;
+  --gradient: linear-gradient(135deg, #b2fefa 0%, #0ed2f7 100%);
+  --gradient-alt: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  --blur: rgba(255, 255, 255, 0.2);
+}
 
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -24,22 +26,39 @@
       line-height: 1.7;
     }
 
-    header {
-      background: var(--gradient);
-      color: white;
-      padding: 1.5rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-    }
+ header {
+  background: var(--gradient);
+  background-size: 200% 200%;
+  animation: gradientFlow 10s ease infinite;
+  color: white;
+  padding: 1.5rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  border-radius: 0 0 20px 20px;
+}
 
-    header.scrolled {
-      padding: 1rem;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-    }
+header.scrolled {
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
     nav {
       display: flex;
