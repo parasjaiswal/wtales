@@ -3,156 +3,130 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Whispering Tales - Magical Fish</title>
+  <title>🐠 The Magical Fish - Whispering Tales</title>
   <style>
-    :root {
-      --primary: #12239E;
-      --accent: #ff9a9e;
-      --light: #fdfdfd;
-      --dark: #2d3436;
-    }
-
+    /* Enhanced CSS */
     body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Georgia', serif;
       margin: 0;
-      padding: 0;
-      background: var(--light);
-      color: var(--dark);
-      line-height: 1.7;
+      background: linear-gradient(to bottom, #dbefff, #ffffff);
+      color: #2c3e50;
+      line-height: 1.8;
     }
 
     header {
-      background: var(--primary);
+      background: linear-gradient(45deg, #3f51b5, #2196F3);
       color: white;
-      padding: 1.5rem 2rem;
+      padding: 25px;
+      text-align: center;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      border-bottom: 3px solid #FFC107;
     }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 50px;
-      background: rgba(255,255,255,0.1);
-      transition: all 0.3s ease;
-    }
-
-    nav a:hover {
-      background: rgba(255,255,255,0.2);
-      transform: translateY(-2px);
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-      text-align: center;
-    }
-
-    main {
-      padding: 2rem;
-    }
-
-    .story-flex-section {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      background: white;
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: rgba(255,255,255,0.95);
+      padding: 40px;
       border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      margin: 2rem auto;
-      max-width: 1000px;
-      flex-wrap: wrap;
-    }
-
-    .story-image {
-      width: 350px;
-      height: auto;
-      border-radius: 15px;
-      object-fit: cover;
-      flex-shrink: 0;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
     }
 
     .story-text {
-      flex: 1;
-      min-width: 250px;
+      font-size: 1.1em;
+      text-align: justify;
+      hyphens: auto;
     }
 
-    .story-text h3 {
-      font-size: 1.8rem;
-      color: var(--primary);
-      margin-top: 0;
+    /* Added animation for images */
+    img {
+      width: 100%;
+      border-radius: 15px;
+      margin: 25px 0;
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
     }
 
-    .story-text p {
-      font-size: 1rem;
-      margin: 1rem 0;
+    img:hover {
+      transform: scale(1.02);
     }
 
-    .story-link {
-      display: inline-block;
-      padding: 0.8rem 1.5rem;
-      background: var(--primary);
-      color: white;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
+    /* Enhanced moral section */
+    .moral {
+      font-size: 1.3em;
+      color: #1A237E;
+      background: linear-gradient(145deg, #E3F2FD, #BBDEFB);
+      padding: 25px;
+      border-radius: 15px;
+      margin: 50px 0;
+      border-left: 5px solid #3f51b5;
+      text-align: center;
+      font-style: italic;
     }
 
-    .story-link:hover {
-      background: #0f1e89;
-      transform: translateY(-2px);
+    /* Added decorative elements */
+    .highlight {
+      color: #0D47A1;
+      font-weight: 700;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
 
-    @media (max-width: 768px) {
-      .story-flex-section {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .story-image {
-        width: 100%;
-        height: auto;
-      }
+    .wave-decoration {
+      height: 20px;
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 10 C20 18 40 2 60 10 S100 18 100 10 V20 H0 Z" fill="%233f51b5"/></svg>');
+      margin: 30px 0;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Whispering Tales</h1>
+    <h1>🐠 The Tale of Jack and the Magical Fish</h1>
     <nav>
-      <a href="#stories">📖 Stories</a>
-      <a href="#technical">💻 Technical</a>
-      <a href="#stocks">📈 Stocks</a>
-      <a href="#general">🌍 General</a>
+      <a href="https://whisperingtales.in">🏠 Home</a>
+      <a href="https://whisperingtales.in/#stories">📖 Stories</a>
     </nav>
   </header>
 
-  <main>
-    <section class="story-flex-section">
-      <img src="children_story.jpg" alt="Magical Fish illustration" class="story-image">
-      <div class="story-text">
-        <h3>🐟 Magical Fish</h3>
-        <p>✨ Spark imagination with magical tales for young minds.</p>
-        <a href="stories/magical-fish.html" class="story-link">Read Now →</a>
-      </div>
-    </section>
-  </main>
+  <div class="container">
+    <div class="button-row-top">
+      <a href="https://whisperingtales.in" class="btn">← Back to Home</a>
+      <a href="https://whisperingtales.in/#stories" class="btn">← All Stories</a>
+    </div>
+
+    <div class="wave-decoration"></div>
+
+    <div class="story-text">
+      <p>In a quaint coastal village where seagulls sang morning hymns and palm trees danced with the breeze, there lived a thoughtful lad named <span class="highlight">Jack</span>. Each dawn, while other children played, Jack would sit on weathered rocks, whispering secrets to the tide pools and listening to the ocean's ancient wisdom.</p>
+
+      <img src="https://cdn.pixabay.com/photo/2020/01/15/13/06/child-4765720_1280.jpg" alt="Jack gazing at the sea">
+
+      <p>One misty morning, as golden sunlight pierced through the fog, Jack's net grew heavy with a peculiar catch. From the shimmering depths emerged a fish unlike any other - its scales sparkled like liquid sapphires, with fins that rippled like molten silver. To Jack's astonishment, the creature spoke with a voice like bubbling brooks: 🌊 "Young Jack, your pure heart has freed me from the seaweed snare. I am the Guardian of Ocean's Bounty - ask what you will, and it shall be granted."</p>
+
+      <p>The boy knelt in the lapping waves, salt spray kissing his cheeks. After thoughtful silence, he replied, "Great Guardian, if I may be so bold... Let no child in our village ever know hunger's bite again."</p>
+
+      <img src="https://cdn.pixabay.com/photo/2020/01/25/07/32/sea-4791601_1280.jpg" alt="Golden sunset over the enchanted sea">
+
+      <p>The fish arched through the air, trailing stardust in its wake. From that fateful day, the sea became a cornucopia - plump fish leapt willingly into boats, coconut trees bent low with fruit, and freshwater springs bubbled up where none existed before. Jack's name became whispered with reverence, yet he remained the humble boy who chatted with crabs and rescued stranded starfish.</p>
+
+      <p>To this day, fishermen swear that on midsummer nights, they glimpse a azure glow beneath the waves - some say it's the Guardian, keeping watch over Jack's legacy of compassion.</p>
+    </div>
+
+    <div class="moral">
+      ✨ <strong>Wisdom of the Waves:</strong> True magic flows from selfless hearts.<br>
+      <small>Share kindness freely, and the world becomes enchanted.</small>
+    </div>
+
+    <div class="wave-decoration"></div>
+  </div>
+
+  <footer>
+    © 2025 Whispering Tales. Crafted with 🌊 by Storytellers
+  </footer>
 
 </body>
 </html>
