@@ -3,120 +3,147 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Whispering Tales - Home</title>
+  <title>Whispering Tales</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
     body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      min-height: 100vh;
-      color: white;
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
     }
 
-    h1 {
-      margin-top: 1rem;
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(to bottom right, #3f51b5, #6c63ff);
+      color: #fff;
+    }
+
+    header {
       text-align: center;
-      font-size: 2.8rem;
-      font-weight: bold;
+      padding: 4rem 1rem 2rem;
     }
 
-    .landing-grid {
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #e0e0e0;
+      margin-top: 0;
+    }
+
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
-      margin-top: 3rem;
-      max-width: 1000px;
-      width: 100%;
+      padding: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
-    .landing-card {
+    .card {
       background: white;
+      color: #2d3436;
       border-radius: 20px;
       padding: 2rem;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
       text-decoration: none;
-      color: var(--dark);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .landing-card:hover {
+    .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     }
 
-    .card-icon-title {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .icon {
+    .card .icon {
       font-size: 2.5rem;
-      color: var(--secondary);
+      margin-bottom: 1rem;
+      color: #6c63ff;
     }
 
-    .landing-card h2 {
-      margin: 0;
-      color: var(--primary);
-      font-size: 1.5rem;
+    .card h2 {
+      margin: 0.5rem 0;
+      font-size: 1.4rem;
+      color: #3f51b5;
     }
 
-    .landing-card p {
-      color: var(--dark);
+    .card p {
       font-size: 0.95rem;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #ccc;
     }
 
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-      .landing-card h2 {
-        font-size: 1.2rem;
+      header h1 {
+        font-size: 2.2rem;
       }
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to Whispering Tales</h1>
-  <div class="landing-grid">
-    <a href="stories.html" target="_blank" class="landing-card">
-      <div class="card-icon-title">
-        <span class="icon">📖</span>
-        <h2>Stories</h2>
-      </div>
-      <p>Step into tales of magic, wonder, and fantasy.</p>
+  <header>
+    <script>
+      // Simple quote of the day
+      const quotes = [
+        "Stories create community, enable us to see through the eyes of others, and open us to the claims of others. — Peter Forbes",
+        "The art of storytelling is reaching its golden age through the web.",
+        "Every great design begins with an even better story.",
+        "Your story could be the key that unlocks someone else's prison.",
+        "Imagination is the only weapon in the war against reality."
+      ];
+      window.addEventListener('DOMContentLoaded', () => {
+        const quote = quotes[Math.floor(Math.random() * quotes.length)];
+        document.getElementById('quote').textContent = quote;
+      });
+    </script>
+
+    <h1>Whispering Tales</h1>
+    <p>Explore a world of ideas, stories, and insights</p>
+    <p id="quote" style="margin-top: 1rem; font-style: italic; color: #e0e0e0; font-size: 0.95rem;"></p>
+  </header>
+
+  <section class="grid">
+    <a href="stories.html" class="card" target="_blank">
+      <div class="icon">📖</div>
+      <h2>Stories</h2>
+      <p>Dive into enchanting stories for every mood and age.</p>
     </a>
-    <a href="technical.html" target="_blank" class="landing-card">
-      <div class="card-icon-title">
-        <span class="icon">💻</span>
-        <h2>Technical</h2>
-      </div>
-      <p>Dive into the world of cloud, AI, and modern tech.</p>
+    <a href="technical.html" class="card" target="_blank">
+      <div class="icon">💻</div>
+      <h2>Technical</h2>
+      <p>Unlock deep dives on AI, cloud, code and data.</p>
     </a>
-    <a href="stocks.html" target="_blank" class="landing-card">
-      <div class="card-icon-title">
-        <span class="icon">📈</span>
-        <h2>Stocks</h2>
-      </div>
-      <p>Market analysis, strategies, and financial wisdom.</p>
+    <a href="stocks.html" class="card" target="_blank">
+      <div class="icon">📈</div>
+      <h2>Stocks</h2>
+      <p>Smart market moves, insights, and analysis.</p>
     </a>
-    <a href="general.html" target="_blank" class="landing-card">
-      <div class="card-icon-title">
-        <span class="icon">🌍</span>
-        <h2>General</h2>
-      </div>
-      <p>Everything from lifestyle to productivity and wellness.</p>
+    <a href="general.html" class="card" target="_blank">
+      <div class="icon">🌍</div>
+      <h2>General</h2>
+      <p>Thoughts, reflections, and real-world inspiration.</p>
     </a>
-  </div>
+  </section>
+
+  <footer>
+    © 2025 Whispering Tales · Crafted with passion ✨
+  </footer>
 </body>
 </html>
