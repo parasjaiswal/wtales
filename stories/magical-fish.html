@@ -3,148 +3,156 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🐠 The Magical Fish - Whispering Tales</title>
+  <title>Whispering Tales - Magical Fish</title>
   <style>
+    :root {
+      --primary: #12239E;
+      --accent: #ff9a9e;
+      --light: #fdfdfd;
+      --dark: #2d3436;
+    }
+
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', system-ui, sans-serif;
       margin: 0;
-      background: linear-gradient(to bottom, #dbefff, #ffffff);
-      color: #2c3e50;
-      line-height: 1.6;
+      padding: 0;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.7;
     }
 
     header {
-      background: #3f51b5;
+      background: var(--primary);
       color: white;
-      padding: 20px;
-      text-align: center;
+      padding: 1.5rem 2rem;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2em;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0 0 20px 20px;
     }
 
     nav {
-      margin-top: 10px;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-
-    .button-row-top {
       display: flex;
-      justify-content: flex-start;
-      gap: 15px;
-      margin-bottom: 30px;
+      justify-content: center;
+      gap: 2rem;
       flex-wrap: wrap;
     }
 
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      background-color: #3f51b5;
+    nav a {
       color: white;
-      padding: 10px 16px;
-      border-radius: 8px;
-      transition: background 0.3s ease;
-      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
     }
 
-    .btn:hover {
-      background-color: #303f9f;
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
     }
 
-    .container img {
-      width: 100%;
-      border-radius: 12px;
-      margin: 20px 0;
-    }
-
-    .highlight {
-      color: #1e88e5;
-      font-weight: bold;
-    }
-
-    .moral {
-      font-size: 1.2em;
-      color: #00796b;
-      background: #e0f7fa;
-      padding: 15px;
-      border-radius: 10px;
-      margin-top: 40px;
+    h1 {
+      margin: 0;
+      font-size: 2rem;
       text-align: center;
-      font-weight: 500;
     }
 
-    footer {
-      text-align: center;
-      color: #777;
-      margin: 50px 0 20px;
-      font-size: 0.9em;
+    main {
+      padding: 2rem;
+    }
+
+    .story-flex-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      margin: 2rem auto;
+      max-width: 1000px;
+      flex-wrap: wrap;
+    }
+
+    .story-image {
+      width: 350px;
+      height: auto;
+      border-radius: 15px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .story-text {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .story-text h3 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-top: 0;
+    }
+
+    .story-text p {
+      font-size: 1rem;
+      margin: 1rem 0;
+    }
+
+    .story-link {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .story-link:hover {
+      background: #0f1e89;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .story-flex-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .story-image {
+        width: 100%;
+        height: auto;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>🐠 The Magical Fish</h1>
+    <h1>Whispering Tales</h1>
     <nav>
-      <a href="https://whisperingtales.in">🏠 Home</a>
+      <a href="#stories">📖 Stories</a>
+      <a href="#technical">💻 Technical</a>
+      <a href="#stocks">📈 Stocks</a>
+      <a href="#general">🌍 General</a>
     </nav>
   </header>
 
-  <div class="container">
-    <div class="button-row-top">
-      <a href="https://whisperingtales.in" class="btn">← Back to Home</a>
-      <a href="https://whisperingtales.in/#stories" class="btn">← Back to Stories</a>
-    </div>
-
-    <img src="https://cdn.pixabay.com/photo/2014/04/10/11/06/fish-320811_1280.jpg" alt="Magical fish swimming underwater" />
-
-    <p>Once upon a time in a quiet fishing village by the sea, there lived a kind boy named <span class="highlight">Karan</span>. Every day, he would go to the ocean and talk to the waves, dreaming of finding something magical.</p>
-
-    <img src="https://cdn.pixabay.com/photo/2020/01/15/13/06/child-4765720_1280.jpg" alt="Boy near the sea" />
-
-    <p>One morning, while casting his net, he caught a shimmering fish glowing with all the colors of the rainbow. The fish spoke! 🐠 “Dear Karan,” it said, “thank you for being kind. I will grant you one wish.”</p>
-
-    <p>Karan was amazed but humble. “I wish our village never runs out of food,” he said.</p>
-
-    <p>The fish smiled and leapt back into the sea. From that day on, the sea always provided fresh fish, fruits washed ashore, and even clean drinking water.</p>
-
-    <img src="https://cdn.pixabay.com/photo/2020/01/25/07/32/sea-4791601_1280.jpg" alt="Peaceful ocean view with sunset" />
-
-    <p>Everyone lived happily, and Karan became a legend. And sometimes, when the sun sets just right, the villagers still see a rainbow glimmer in the waves...</p>
-
-    <div class="moral">
-      🌈 <strong>Moral:</strong> Kindness brings back magical rewards.
-    </div>
-  </div>
-
-  <footer>
-    &copy; 2025 Whispering Tales. All rights reserved.
-  </footer>
+  <main>
+    <section class="story-flex-section">
+      <img src="children_story.jpg" alt="Magical Fish illustration" class="story-image">
+      <div class="story-text">
+        <h3>🐟 Magical Fish</h3>
+        <p>✨ Spark imagination with magical tales for young minds.</p>
+        <a href="stories/magical-fish.html" class="story-link">Read Now →</a>
+      </div>
+    </section>
+  </main>
 
 </body>
 </html>
