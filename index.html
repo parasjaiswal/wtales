@@ -3,175 +3,414 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Whispering Tales</title>
+  <title>Whispering Tales - Enlightening Content Hub</title>
   <style>
+    :root {
+      --primary: #3f51b5;
+      --secondary: #6c63ff;
+      --accent: #ff6b6b;
+      --light: #f8f9fa;
+      --dark: #2d3436;
+      --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       margin: 0;
       padding: 0;
       scroll-behavior: smooth;
-      background: linear-gradient(to bottom, #eef2f3, #ffffff);
-      color: #333;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.7;
     }
+
     header {
-      background: #3f51b5;
+      background: var(--gradient);
       color: white;
-      padding: 30px 20px;
-      text-align: center;
+      padding: 1.5rem;
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-radius: 0 0 15px 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
     }
+
+    header.scrolled {
+      padding: 1rem;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
     nav a {
       color: white;
-      margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.1);
     }
+
     nav a:hover {
-      text-decoration: underline;
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
     }
+
     section {
-      padding: 60px 20px;
+      padding: 4rem 1.5rem;
+      opacity: 0;
+      transform: translateY(20px);
     }
+
     h2 {
-      color: #1a237e;
+      font-size: 2.5rem;
+      color: var(--primary);
       text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
     }
+
+    h2::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
     .subsection {
-      margin: 30px auto;
+      margin: 2rem auto;
       background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       max-width: 900px;
+      overflow: hidden;
+      position: relative;
     }
+
+    .subsection:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+
+    .subsection::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .subsection:hover::before {
+      opacity: 1;
+    }
+
     .subsection h3 {
       margin-top: 0;
-      color: #3949ab;
+      color: var(--dark);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
     }
+
     .subsection img {
       width: 100%;
-      border-radius: 10px;
-      margin-top: 15px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin: 1.5rem 0;
+      transition: transform 0.3s ease;
     }
+
+    .subsection:hover img {
+      transform: scale(1.02);
+    }
+
     .story-link {
-      display: inline-block;
-      margin-top: 15px;
-      font-weight: bold;
-      color: #1e88e5;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      background: var(--gradient);
+      color: white;
+      border-radius: 50px;
       text-decoration: none;
-      background-color: #e3f2fd;
-      padding: 8px 12px;
-      border-radius: 8px;
-      transition: background 0.3s ease;
+      font-weight: 600;
+      transition: all 0.3s ease;
     }
+
     .story-link:hover {
-      background-color: #bbdefb;
+      gap: 1rem;
+      box-shadow: 0 5px 15px rgba(63,81,181,0.3);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 15px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 2rem 1rem;
+      }
+      
+      .subsection {
+        margin: 1.5rem auto;
+        padding: 1.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      nav {
+        gap: 1rem;
+      }
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--gradient);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      color: white;
+      font-size: 1.2rem;
+    }
+
+    .scroll-top.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-3px);
+    }
+
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Whispering Tales</h1>
+    <h1 style="margin: 0 0 1rem 0; font-size: 2rem;">Whispering Tales</h1>
     <nav>
-      <a href="#stories">Stories</a>
-      <a href="#technical">Technical</a>
-      <a href="#stocks">Stock Markets</a>
-      <a href="#general">General</a>
+      <a href="#stories">📖 Stories</a>
+      <a href="#technical">💻 Technical</a>
+      <a href="#stocks">📈 Stocks</a>
+      <a href="#general">🌍 General</a>
     </nav>
   </header>
 
-  <section id="stories">
-    <h2>Stories</h2>
-    <div class="subsection">
-      <h3>Kids</h3>
-      <p>Fun and imaginative tales for young minds.</p>
-      <img src="https://cdn.pixabay.com/photo/2016/06/07/10/36/fantasy-1440951_1280.jpg" alt="Kids fantasy story illustration" />
-      <a href="stories/magical-fish.html" target="_blank" class="story-link">Read: Magical Fish 🐠</a>
-    </div>
-    <div class="subsection">
-      <h3>Fantasy</h3>
-      <p>Magical kingdoms, dragons, and epic quests await.</p>
-      <img src="https://cdn.pixabay.com/photo/2019/04/10/07/38/dragon-4119398_1280.jpg" alt="Fantasy world with dragons" />
-    </div>
-    <div class="subsection">
-      <h3>Thriller</h3>
-      <p>Heart-pounding suspense and mind-twisting plots.</p>
-      <img src="https://cdn.pixabay.com/photo/2021/01/30/13/54/door-5962975_1280.jpg" alt="Dark thriller mood" />
-    </div>
-    <div class="subsection">
-      <h3>Romance</h3>
-      <p>From meet-cutes to dramatic reunions, love stories that touch the soul.</p>
-      <img src="https://cdn.pixabay.com/photo/2017/03/27/13/47/love-2179178_1280.jpg" alt="Romantic scene" />
-    </div>
-    <div class="subsection">
-      <h3>Sci-Fi</h3>
-      <p>Futuristic worlds and speculative adventures beyond imagination.</p>
-      <img src="https://cdn.pixabay.com/photo/2017/03/25/17/55/fantasy-2170547_1280.jpg" alt="Sci-fi imagination" />
-    </div>
-  </section>
+  <main>
+    <!-- Stories Section -->
+    <section id="stories">
+      <h2>📚 Enchanting Stories</h2>
+      <div class="subsection">
+        <h3>Children's Adventures</h3>
+        <p>Spark imagination with magical tales for young minds 🌟</p>
+        <img src="https://cdn.pixabay.com/photo/2016/06/07/10/36/fantasy-1440951_1280.jpg" 
+             alt="Kids fantasy story illustration"
+             loading="lazy">
+        <a href="stories/magical-fish.html" class="story-link">
+          Read Now <span>→</span>
+        </a>
+      </div>
 
-  <section id="technical">
-    <h2>Technical Posts</h2>
-    <div class="subsection">
-      <h3>Certification Guides</h3>
-      <p>Prepare for industry certifications like AWS, Azure, and Google Cloud.</p>
-    </div>
-    <div class="subsection">
-      <h3>Latest Tech Trends</h3>
-      <p>Stay updated on AI, ML, Web3, and other cutting-edge technologies.</p>
-    </div>
-    <div class="subsection">
-      <h3>Code Snippets</h3>
-      <p>Reusable pieces of code in Python, JavaScript, SQL, and more.</p>
-    </div>
-    <div class="subsection">
-      <h3>Troubleshooting Tips</h3>
-      <p>Common bugs and how to fix them like a pro.</p>
-    </div>
-  </section>
+      <div class="subsection">
+        <h3>Fantasy Worlds</h3>
+        <p>Dive into magical kingdoms and epic quests 🏰⚔️</p>
+        <img src="https://cdn.pixabay.com/photo/2019/04/10/07/38/dragon-4119398_1280.jpg" 
+             alt="Fantasy world with dragons"
+             loading="lazy">
+        <a href="#" class="story-link">Explore Worlds →</a>
+      </div>
 
-  <section id="stocks">
-    <h2>Stock Markets</h2>
-    <div class="subsection">
-      <h3>Market Analysis</h3>
-      <p>Daily/weekly market movements and sentiment analysis.</p>
-    </div>
-    <div class="subsection">
-      <h3>Company Reports</h3>
-      <p>Key earnings, reports, and valuation insights for top companies.</p>
-    </div>
-    <div class="subsection">
-      <h3>Investment Strategies</h3>
-      <p>From long-term investing to swing trading, strategies that work.</p>
-    </div>
-    <div class="subsection">
-      <h3>Beginner’s Corner</h3>
-      <p>New to investing? Start here with basics and resources.</p>
-    </div>
-  </section>
+      <div class="card-grid">
+        <div class="feature-card">
+          <div class="icon">🕵️♂️</div>
+          <h3>Mystery & Thriller</h3>
+          <p>Unravel puzzles that keep you guessing until dawn</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="icon">💞</div>
+          <h3>Romance</h3>
+          <p>Heartwarming tales of love and connection</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="icon">🚀</div>
+          <h3>Sci-Fi</h3>
+          <p>Journey through futuristic dimensions</p>
+        </div>
+      </div>
+    </section>
 
-  <section id="general">
-    <h2>General</h2>
-    <div class="subsection">
-      <h3>Productivity Tips</h3>
-      <p>Maximize your time, work smarter, and stay motivated.</p>
-    </div>
-    <div class="subsection">
-      <h3>Lifestyle & Wellness</h3>
-      <p>Simple routines to boost mental and physical health.</p>
-    </div>
-    <div class="subsection">
-      <h3>Personal Finance</h3>
-      <p>Save smart, spend wisely, and plan for your future.</p>
-    </div>
-    <div class="subsection">
-      <h3>Book Reviews</h3>
-      <p>Insightful reviews of fiction, non-fiction, and must-reads.</p>
-    </div>
-  </section>
+    <!-- Technical Section -->
+    <section id="technical">
+      <h2>💻 Tech Insights</h2>
+      <div class="subsection">
+        <h3>Cloud Mastery</h3>
+        <p>Complete guides for AWS, Azure, and GCP certifications ☁️</p>
+        <img src="https://cdn.pixabay.com/photo/2017/07/10/23/45/clouds-2491350_1280.jpg" 
+             alt="Cloud computing illustration"
+             loading="lazy">
+      </div>
+
+      <div class="card-grid">
+        <div class="feature-card">
+          <div class="icon">🤖</div>
+          <h3>AI Trends</h3>
+          <p>Latest developments in machine learning</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="icon">🔧</div>
+          <h3>Dev Tools</h3>
+          <p>Essential tools for modern development</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stock Market Section -->
+    <section id="stocks">
+      <h2>📈 Market Intelligence</h2>
+      <div class="subsection">
+        <h3>Daily Analysis</h3>
+        <p>Real-time market movements and predictions 📊</p>
+        <img src="https://cdn.pixabay.com/photo/2016/11/19/11/11/hands-1838658_1280.jpg" 
+             alt="Stock market analysis"
+             loading="lazy">
+      </div>
+
+      <div class="card-grid">
+        <div class="feature-card">
+          <div class="icon">💡</div>
+          <h3>Investment Strategies</h3>
+          <p>Smart approaches for wealth growth</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="icon">📊</div>
+          <h3>Portfolio Management</h3>
+          <p>Optimize your investment portfolio</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- General Section -->
+    <section id="general">
+      <h2>🌍 Lifestyle & More</h2>
+      <div class="subsection">
+        <h3>Productivity Hacks</h3>
+        <p>Maximize efficiency in work and life ⚡</p>
+        <img src="https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg" 
+             alt="Productivity concepts"
+             loading="lazy">
+      </div>
+
+      <div class="card-grid">
+        <div class="feature-card">
+          <div class="icon">📚</div>
+          <h3>Book Reviews</h3>
+          <p>Curated reviews of must-read titles</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="icon">🧘♂️</div>
+          <h3>Wellness</h3>
+          <p>Mind and body optimization guides</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
+
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Scroll to top button
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.querySelector('.scroll-top');
+      window.scrollY > 500 
+        ? scrollTop.classList.add('show') 
+        : scrollTop.classList.remove('show');
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      header.classList.toggle('scrolled', window.scrollY > 100);
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
