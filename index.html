@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Whispering Tales - Home</title>
@@ -11,13 +12,16 @@
       flex-direction: column;
       align-items: center;
       padding: 2rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      min-height: 100vh;
+      color: white;
     }
 
     h1 {
       margin-top: 1rem;
       text-align: center;
-      font-size: 2.5rem;
-      color: var(--primary);
+      font-size: 2.8rem;
+      font-weight: bold;
     }
 
     .landing-grid {
@@ -31,18 +35,18 @@
 
     .landing-card {
       background: white;
-      border-radius: 15px;
+      border-radius: 20px;
       padding: 2rem;
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       text-decoration: none;
-      color: inherit;
+      color: var(--dark);
     }
 
     .landing-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
     }
 
     .landing-card .icon {
@@ -59,10 +63,21 @@
 
     .landing-card p {
       color: var(--dark);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .landing-card h2 {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
+  <img src="logo.png" alt="Whispering Tales Logo" style="width:100px;height:auto;margin-bottom:1rem;">
   <h1>Welcome to Whispering Tales</h1>
   <div class="landing-grid">
     <a href="stories.html" target="_blank" class="landing-card">
