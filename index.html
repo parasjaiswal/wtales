@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Whispering Tales - Home</title>
@@ -42,6 +41,10 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       text-decoration: none;
       color: var(--dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .landing-card:hover {
@@ -49,14 +52,21 @@
       box-shadow: 0 15px 40px rgba(0,0,0,0.2);
     }
 
-    .landing-card .icon {
-      font-size: 3rem;
+    .card-icon-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
       margin-bottom: 1rem;
+    }
+
+    .icon {
+      font-size: 2.5rem;
       color: var(--secondary);
     }
 
     .landing-card h2 {
-      margin: 0.5rem 0;
+      margin: 0;
       color: var(--primary);
       font-size: 1.5rem;
     }
@@ -77,27 +87,34 @@
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Whispering Tales Logo" style="width:100px;height:auto;margin-bottom:1rem;">
   <h1>Welcome to Whispering Tales</h1>
   <div class="landing-grid">
     <a href="stories.html" target="_blank" class="landing-card">
-      <div class="icon">📖</div>
-      <h2>Stories</h2>
+      <div class="card-icon-title">
+        <span class="icon">📖</span>
+        <h2>Stories</h2>
+      </div>
       <p>Step into tales of magic, wonder, and fantasy.</p>
     </a>
     <a href="technical.html" target="_blank" class="landing-card">
-      <div class="icon">💻</div>
-      <h2>Technical</h2>
+      <div class="card-icon-title">
+        <span class="icon">💻</span>
+        <h2>Technical</h2>
+      </div>
       <p>Dive into the world of cloud, AI, and modern tech.</p>
     </a>
     <a href="stocks.html" target="_blank" class="landing-card">
-      <div class="icon">📈</div>
-      <h2>Stocks</h2>
+      <div class="card-icon-title">
+        <span class="icon">📈</span>
+        <h2>Stocks</h2>
+      </div>
       <p>Market analysis, strategies, and financial wisdom.</p>
     </a>
     <a href="general.html" target="_blank" class="landing-card">
-      <div class="icon">🌍</div>
-      <h2>General</h2>
+      <div class="card-icon-title">
+        <span class="icon">🌍</span>
+        <h2>General</h2>
+      </div>
       <p>Everything from lifestyle to productivity and wellness.</p>
     </a>
   </div>
