@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fantasy Stories - Whispering Tales</title>
+  <style>
+    :root {
+      --primary: #6c63ff;
+      --secondary: #3f51b5;
+      --bg-dark: #1a1a2e;
+      --bg-darker: #16213e;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --text-light: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, var(--bg-dark), var(--bg-darker));
+      color: var(--text-light);
+      transition: all 0.3s ease;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 1.5rem;
+      background: rgba(0, 0, 0, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .toggle-dark {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .story-grid {
+      max-width: 1200px;
+      margin: 2rem auto;
+      display: grid;
+      gap: 2rem;
+      padding: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .story-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease;
+    }
+
+    .story-card:hover {
+      transform: scale(1.02);
+    }
+
+    .story-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .story-content {
+      padding: 1rem;
+    }
+
+    .story-content h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .story-content p {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-dark" onclick="toggleDarkMode()">Toggle Theme</button>
+  <header>
+    <h1>🧙 Fantasy Tales</h1>
+    <p>Magic, myths, and mystical adventures await</p>
+  </header>
+
+  <section class="story-grid">
+    <div class="story-card">
+      <img src="fantasy1.jpg" alt="The Dragon's Oath">
+      <div class="story-content">
+        <h3>The Dragon's Oath</h3>
+        <p>A knight must form an unlikely alliance with a dragon to save his realm.</p>
+      </div>
+    </div>
+    <div class="story-card">
+      <img src="fantasy2.jpg" alt="The Enchanted Forest">
+      <div class="story-content">
+        <h3>The Enchanted Forest</h3>
+        <p>A young girl stumbles into a forest where every tree tells a tale.</p>
+      </div>
+    </div>
+    <div class="story-card">
+      <img src="fantasy3.jpg" alt="Wizards of Westwind">
+      <div class="story-content">
+        <h3>Wizards of Westwind</h3>
+        <p>Follow a brotherhood of wizards defending their land from shadowy creatures.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Whispering Tales · Enter the realm of fantasy ✨
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("light-mode");
+    }
+  </script>
+</body>
+</html>
