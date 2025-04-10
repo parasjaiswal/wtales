@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Whispering Tales - Enlightening Content Hub</title>
   <style>
-:root {
-  --primary: #b2fefa;
-  --secondary: #0ed2f7;
-  --accent: #ff9a9e;
-  --light: #fdfdfd;
-  --dark: #2d3436;
-  --gradient: linear-gradient(135deg, #b2fefa 0%, #0ed2f7 100%);
-  --gradient-alt: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-  --blur: rgba(255, 255, 255, 0.2);
-}
+    :root {
+      --primary: #6a11cb;
+      --secondary: #2575fc;
+      --accent: #ff9a9e;
+      --light: #fdfdfd;
+      --dark: #2d3436;
+      --gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      --gradient-alt: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      --blur: rgba(255, 255, 255, 0.2);
+    }
 
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -26,39 +26,39 @@
       line-height: 1.7;
     }
 
- header {
-  background: var(--gradient);
-  background-size: 200% 200%;
-  animation: gradientFlow 10s ease infinite;
-  color: white;
-  padding: 1.5rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-  border-radius: 0 0 20px 20px;
-}
+    header {
+      background: var(--gradient);
+      background-size: 200% 200%;
+      animation: gradientFlow 10s ease infinite;
+      color: white;
+      padding: 1.5rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      border-radius: 0 0 20px 20px;
+    }
 
-header.scrolled {
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-}
+    header.scrolled {
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
 
-@keyframes gradientFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+    @keyframes gradientFlow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
 
     nav {
       display: flex;
@@ -207,16 +207,16 @@ header.scrolled {
       section {
         padding: 2rem 1rem;
       }
-      
+
       .subsection {
         margin: 1.5rem auto;
         padding: 1.5rem;
       }
-      
+
       h2 {
         font-size: 2rem;
       }
-      
+
       nav {
         gap: 1rem;
       }
@@ -275,8 +275,8 @@ header.scrolled {
       <div class="subsection">
         <h3>Children's Adventures</h3>
         <p>Spark imagination with magical tales for young minds 🌟</p>
-        <img src="https://cdn.pixabay.com/photo/2016/06/07/10/36/fantasy-1440951_1280.jpg" 
-             alt="Kids fantasy story illustration"
+        <img src="https://cdn.pixabay.com/photo/2023/05/10/07/59/fantasy-7982872_1280.jpg"
+             alt="Children fantasy Ghibli-style"
              loading="lazy">
         <a href="stories/magical-fish.html" class="story-link">
           Read Now <span>→</span>
@@ -286,25 +286,23 @@ header.scrolled {
       <div class="subsection">
         <h3>Fantasy Worlds</h3>
         <p>Dive into magical kingdoms and epic quests 🏰⚔️</p>
-        <img src="https://cdn.pixabay.com/photo/2019/04/10/07/38/dragon-4119398_1280.jpg" 
-             alt="Fantasy world with dragons"
+        <img src="https://cdn.pixabay.com/photo/2022/06/07/11/44/fantasy-7248161_1280.jpg"
+             alt="Ghibli fantasy world"
              loading="lazy">
         <a href="#" class="story-link">Explore Worlds →</a>
       </div>
 
       <div class="card-grid">
         <div class="feature-card">
-          <div class="icon">🕵️♂️</div>
+          <div class="icon">🕵️‍♂️</div>
           <h3>Mystery & Thriller</h3>
           <p>Unravel puzzles that keep you guessing until dawn</p>
         </div>
-        
         <div class="feature-card">
           <div class="icon">💞</div>
           <h3>Romance</h3>
           <p>Heartwarming tales of love and connection</p>
         </div>
-        
         <div class="feature-card">
           <div class="icon">🚀</div>
           <h3>Sci-Fi</h3>
@@ -319,23 +317,9 @@ header.scrolled {
       <div class="subsection">
         <h3>Cloud Mastery</h3>
         <p>Complete guides for AWS, Azure, and GCP certifications ☁️</p>
-        <img src="https://cdn.pixabay.com/photo/2017/07/10/23/45/clouds-2491350_1280.jpg" 
+        <img src="https://cdn.pixabay.com/photo/2017/07/10/23/45/clouds-2491350_1280.jpg"
              alt="Cloud computing illustration"
              loading="lazy">
-      </div>
-
-      <div class="card-grid">
-        <div class="feature-card">
-          <div class="icon">🤖</div>
-          <h3>AI Trends</h3>
-          <p>Latest developments in machine learning</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="icon">🔧</div>
-          <h3>Dev Tools</h3>
-          <p>Essential tools for modern development</p>
-        </div>
       </div>
     </section>
 
@@ -345,23 +329,9 @@ header.scrolled {
       <div class="subsection">
         <h3>Daily Analysis</h3>
         <p>Real-time market movements and predictions 📊</p>
-        <img src="https://cdn.pixabay.com/photo/2016/11/19/11/11/hands-1838658_1280.jpg" 
+        <img src="https://cdn.pixabay.com/photo/2016/11/19/11/11/hands-1838658_1280.jpg"
              alt="Stock market analysis"
              loading="lazy">
-      </div>
-
-      <div class="card-grid">
-        <div class="feature-card">
-          <div class="icon">💡</div>
-          <h3>Investment Strategies</h3>
-          <p>Smart approaches for wealth growth</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="icon">📊</div>
-          <h3>Portfolio Management</h3>
-          <p>Optimize your investment portfolio</p>
-        </div>
       </div>
     </section>
 
@@ -371,23 +341,9 @@ header.scrolled {
       <div class="subsection">
         <h3>Productivity Hacks</h3>
         <p>Maximize efficiency in work and life ⚡</p>
-        <img src="https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg" 
-             alt="Productivity concepts"
+        <img src="https://cdn.pixabay.com/photo/2023/01/06/04/08/woman-7700847_1280.jpg"
+             alt="Calm productivity fantasy"
              loading="lazy">
-      </div>
-
-      <div class="card-grid">
-        <div class="feature-card">
-          <div class="icon">📚</div>
-          <h3>Book Reviews</h3>
-          <p>Curated reviews of must-read titles</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="icon">🧘♂️</div>
-          <h3>Wellness</h3>
-          <p>Mind and body optimization guides</p>
-        </div>
       </div>
     </section>
   </main>
@@ -395,7 +351,6 @@ header.scrolled {
   <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
 
   <script>
-    // Scroll animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -408,21 +363,16 @@ header.scrolled {
       observer.observe(section);
     });
 
-    // Scroll to top button
     window.addEventListener('scroll', () => {
       const scrollTop = document.querySelector('.scroll-top');
       window.scrollY > 500 
         ? scrollTop.classList.add('show') 
         : scrollTop.classList.remove('show');
-    });
 
-    // Header scroll effect
-    window.addEventListener('scroll', () => {
       const header = document.querySelector('header');
       header.classList.toggle('scrolled', window.scrollY > 100);
     });
 
-    // Smooth scroll for navigation links
     document.querySelectorAll('nav a').forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
