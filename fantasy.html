@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fantasy Stories - Whispering Tales</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     :root {
       --primary: #6c63ff;
@@ -23,47 +24,102 @@
       min-height: 100vh;
     }
 
+    /* Navigation Buttons */
+    .nav-buttons {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .nav-button {
+      background: rgba(108, 99, 255, 0.9);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      font-size: 1rem;
+    }
+
+    .nav-button:hover {
+      background: #3f51b5;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-button i {
+      font-size: 1.1em;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-button:hover i {
+      transform: scale(1.1);
+    }
+
+    /* Header Styles */
     header {
       text-align: center;
-      padding: 3rem 1rem 1.5rem;
+      padding: 5rem 1rem 2rem;
       background: rgba(0, 0, 0, 0.2);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin: 0;
       background: linear-gradient(45deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      letter-spacing: 2px;
     }
 
     header p {
-      margin-top: 0.5rem;
-      font-size: 1.1rem;
-      color: rgba(255, 255, 255, 0.8);
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-style: italic;
     }
 
+    /* Theme Toggle */
     .toggle-dark {
-      position: absolute;
+      position: fixed;
       top: 20px;
       right: 20px;
-      background: var(--primary);
+      background: rgba(108, 99, 255, 0.9);
       color: #fff;
       border: none;
-      padding: 8px 12px;
-      border-radius: 20px;
+      padding: 10px 20px;
+      border-radius: 25px;
       cursor: pointer;
-      font-weight: bold;
+      font-weight: 600;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+      z-index: 1000;
     }
 
+    .toggle-dark:hover {
+      background: #3f51b5;
+      transform: translateY(-2px);
+    }
+
+    /* Story Grid */
     .story-grid {
       max-width: 1200px;
-      margin: 2rem auto;
+      margin: 3rem auto;
       display: grid;
       gap: 2rem;
       padding: 1rem;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
     .story-card {
@@ -72,43 +128,91 @@
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
     }
 
     .story-card:hover {
-      transform: scale(1.02);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     }
 
     .story-card img {
       width: 100%;
-      height: 180px;
+      height: 200px;
       object-fit: cover;
+      border-bottom: 2px solid var(--primary);
     }
 
     .story-content {
-      padding: 1rem;
+      padding: 1.5rem;
     }
 
     .story-content h3 {
-      margin: 0 0 0.5rem;
-      font-size: 1.2rem;
+      margin: 0 0 1rem;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .story-content p {
-      font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.75);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1.5rem;
     }
 
+    /* Footer */
     footer {
       text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.6);
+      padding: 3rem 2rem;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      background: rgba(0, 0, 0, 0.15);
+      margin-top: 4rem;
+    }
+
+    footer span {
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 4rem 1rem 1.5rem;
+      }
+      
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .nav-button span {
+        display: none;
+      }
+      
+      .nav-button {
+        padding: 12px;
+      }
     }
   </style>
 </head>
 <body>
-  <button class="toggle-dark" onclick="toggleDarkMode()">Toggle Theme</button>
+  <div class="nav-buttons">
+    <button class="nav-button" onclick="history.back()">
+      <i class="fas fa-arrow-left"></i>
+      <span>Back</span>
+    </button>
+    <a href="/" class="nav-button">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+  </div>
+
+  <button class="toggle-dark" onclick="toggleDarkMode()">
+    <i class="fas fa-moon"></i> Toggle Theme
+  </button>
+
   <header>
     <h1>🧙 Fantasy Tales</h1>
     <p>Magic, myths, and mystical adventures await</p>
@@ -119,32 +223,37 @@
       <img src="f1.jpg" alt="The Dragon's Oath">
       <div class="story-content">
         <h3><a href="stories/the_second_winter_in_ottawa.html" target="_blank" style="color: inherit; text-decoration: none;">🧙‍♂️ Fantasy</a></h3>
-        <p>In Ottawa’s icy embrace, love thawed into betrayal.</p>
+        <p>In Ottawa’s icy embrace, love thawed into betrayal. A tale of frost-bound hearts and magical intrigue.</p>
       </div>
     </div>
+
     <div class="story-card">
       <img src="fantasy2.jpg" alt="The Enchanted Forest">
       <div class="story-content">
-        <h3>The Enchanted Forest</h3>
-        <p>A young girl stumbles into a forest where every tree tells a tale.</p>
+        <h3>🌳 Enchanted Forest</h3>
+        <p>A young girl stumbles into a forest where every tree whispers ancient secrets and forgotten legends.</p>
       </div>
     </div>
+
     <div class="story-card">
       <img src="fantasy3.jpg" alt="Wizards of Westwind">
       <div class="story-content">
-        <h3>Wizards of Westwind</h3>
-        <p>Follow a brotherhood of wizards defending their land from shadowy creatures.</p>
+        <h3>⚡ Wizards of Westwind</h3>
+        <p>Brotherhood of mages defending their realm against shadow creatures from the Void Between Worlds.</p>
       </div>
     </div>
   </section>
 
   <footer>
-    © 2025 Whispering Tales · Enter the realm of fantasy ✨
+    <span>© 2025 Whispering Tales</span> · Enter the realm of fantasy ✨
   </footer>
 
   <script>
     function toggleDarkMode() {
       document.body.classList.toggle("light-mode");
+      const moonIcon = document.querySelector('.toggle-dark i');
+      moonIcon.classList.toggle('fa-moon');
+      moonIcon.classList.toggle('fa-sun');
     }
   </script>
 </body>
