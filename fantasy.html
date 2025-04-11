@@ -106,18 +106,13 @@
       gap: 2rem;
     }
 
-.story-card img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  display: block;
-  border-bottom: 2px solid var(--primary);
-}
-
-
-    .story-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.3);
+    .story-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
     }
 
     .story-card img {
@@ -126,6 +121,11 @@
       object-fit: cover;
       display: block;
       border-bottom: 2px solid var(--primary);
+    }
+
+    .story-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.3);
     }
 
     .story-content {
@@ -175,9 +175,10 @@
 </head>
 <body>
 
-  <button class="nav-button" onclick="goBack()">
-  <i class="fas fa-arrow-left"></i><span>Back</span>
-</button>
+  <div class="nav-buttons">
+    <button class="nav-button" onclick="goBack()">
+      <i class="fas fa-arrow-left"></i><span>Back</span>
+    </button>
     <a href="/" class="nav-button">
       <i class="fas fa-home"></i><span>Home</span>
     </a>
@@ -243,7 +244,6 @@
     }
   }
 </script>
-
 
 </body>
 </html>
