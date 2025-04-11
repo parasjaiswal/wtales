@@ -106,14 +106,14 @@
       gap: 2rem;
     }
 
-    .story-card {
-      background: var(--card-bg);
-      border-radius: 15px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(8px);
-    }
+.story-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-bottom: 2px solid var(--primary);
+}
+
 
     .story-card:hover {
       transform: translateY(-5px);
@@ -196,7 +196,7 @@
 
   <section class="story-grid">
     <div class="story-card">
-      <img src="f0.jpg" alt="Snow Kiss">
+      <img src="f0.jpg" alt="The second Winter">
       <div class="story-content">
          <h3><a href="stories/the_second_winter_in_ottawa.html" target="_blank" style="color: inherit; text-decoration: none;">🧙‍♂️ The Dragon’s Oath</a></h3>
         <p>Amidst snowy peaks and warm cabins, two hearts collide in a winter romance to remember.</p>
