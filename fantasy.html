@@ -175,10 +175,9 @@
 </head>
 <body>
 
-  <div class="nav-buttons">
-    <button class="nav-button" onclick="history.back()">
-      <i class="fas fa-arrow-left"></i><span>Back</span>
-    </button>
+  <button class="nav-button" onclick="goBack()">
+  <i class="fas fa-arrow-left"></i><span>Back</span>
+</button>
     <a href="/" class="nav-button">
       <i class="fas fa-home"></i><span>Home</span>
     </a>
@@ -228,14 +227,23 @@
     </div>
   </footer>
 
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle("light-mode");
-      const icon = document.querySelector('.toggle-dark i');
-      icon.classList.toggle('fa-moon');
-      icon.classList.toggle('fa-sun');
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle("light-mode");
+    const icon = document.querySelector('.toggle-dark i');
+    icon.classList.toggle('fa-moon');
+    icon.classList.toggle('fa-sun');
+  }
+
+  function goBack() {
+    if (window.history.length > 1) {
+      history.back();
+    } else {
+      window.location.href = "/";
     }
-  </script>
+  }
+</script>
+
 
 </body>
 </html>
