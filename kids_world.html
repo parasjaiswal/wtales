@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kids World - Whispering Tales</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #ff8c00;
+      --secondary: #ff6b6b;
+      --bg-light: #fff3e0;
+      --bg-dark: #ffe0b2;
+      --card-bg: #fff8dc;
+      --text-dark: #333;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to bottom right, var(--bg-light), var(--bg-dark));
+      color: var(--text-dark);
+      transition: all 0.3s ease;
+      min-height: 100vh;
+    }
+
+    .nav-buttons {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .nav-button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-button:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+    }
+
+    .toggle-theme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 1000;
+    }
+
+    .toggle-theme:hover {
+      background: var(--secondary);
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: var(--primary);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .story-grid {
+      max-width: 1100px;
+      margin: 3rem auto;
+      display: grid;
+      gap: 2rem;
+      padding: 0 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .story-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid #ddd;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .story-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .story-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .story-content {
+      padding: 1rem;
+    }
+
+    .story-content h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .story-content p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.95rem;
+      color: #777;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-buttons">
+    <button class="nav-button" onclick="history.back()"><i class="fas fa-arrow-left"></i> Back</button>
+    <a href="/" class="nav-button"><i class="fas fa-home"></i> Home</a>
+  </div>
+
+  <button class="toggle-theme" onclick="toggleTheme()">
+    <i class="fas fa-adjust"></i> Theme
+  </button>
+
+  <header>
+    <h1>🧒 Kids World</h1>
+    <p>Fun-filled tales for the curious minds</p>
+  </header>
+
+  <section class="story-grid">
+    <div class="story-card">
+      <img src="k1.jpg" alt="Adventure in Toyland">
+      <div class="story-content">
+        <h3>🧸 Toyland Quest</h3>
+        <p>A brave teddy and friends embark on a magical journey through a hidden toy world.</p>
+      </div>
+    </div>
+
+    <div class="story-card">
+      <img src="k2.jpg" alt="Milo and the Moonlight">
+      <div class="story-content">
+        <h3>🌙 Milo’s Moonlight Ride</h3>
+        <p>Milo builds a cardboard rocket and discovers a real adventure under the stars!</p>
+      </div>
+    </div>
+
+    <div class="story-card">
+      <img src="k3.jpg" alt="Rainbow Cookie Mystery">
+      <div class="story-content">
+        <h3>🍪 Cookie Rainbow</h3>
+        <p>A mysterious rainbow trail leads to a baking challenge in Sweetville.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Whispering Tales · Stories that sparkle in young hearts ✨
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("light-theme");
+    }
+  </script>
+</body>
+</html>
